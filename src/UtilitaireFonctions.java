@@ -47,7 +47,7 @@ public class UtilitaireFonctions {
 
 	 public static int nbDoublons(char[] mot, String motUtilisateur){
 		int sommeDoublons =0;
-		 motUtilisateur.toLowerCase();
+		 motUtilisateur = motUtilisateur.toLowerCase();
 		int[] tableauDoublons = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 		for(int i =0; i< mot.length;i++){
 			tableauDoublons[(int)(mot[i])-97] +=1;
@@ -81,6 +81,23 @@ public class UtilitaireFonctions {
 		return mot;
 	 }
 
+
+	 public static boolean equals(char[] mot, String str){
+		boolean result = true;
+		str = str.toLowerCase();
+		if(mot.length == str.length()){
+			for(int i =0;i < mot.length;i++){
+				if(mot[i] != str.charAt(i)){
+					result = false;
+				}
+			}
+		} else{
+			result = false;
+		}
+
+		return result;
+	 }
+
 	 public static char generateChar(){
 
 		return tableauLettres[alea(0,tableauLettres.length-1)];
@@ -92,10 +109,13 @@ public class UtilitaireFonctions {
 		while(!motValide){
 			mot = UtilitaireEntreesSorties.lireString("entrer un mot de "
 					+nbLettres+" lettres",true);
-			if(mot.equals("") || mot.length()==nbLettres){
+			if(mot.equals("")){
+				break;
+			} else if (mot.length()==nbLettres){
 				motValide = true;
 
 			}
+
 
 		}
 

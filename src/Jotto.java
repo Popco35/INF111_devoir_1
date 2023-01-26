@@ -4,7 +4,7 @@ public class Jotto {
 
         char[] mot;
         String motUtilisateur;
-        mot = UtilitaireFonctions.generateMot(nbLettres);
+
 
         boolean finPartie = false;
 
@@ -19,7 +19,7 @@ public class Jotto {
                 if(!UtilitaireEntreesSorties.utilisateurAnnule()) {
                     nbDoublons = UtilitaireFonctions.nbDoublons(mot, motUtilisateur);
 
-                    if (nbDoublons == nbLettres) {
+                    if (UtilitaireFonctions.equals(mot, motUtilisateur)) {
                         stats.nbParties += 1;
                         stats.nbEssaisTotal += 1;
                         stats.nbReussite += 1;

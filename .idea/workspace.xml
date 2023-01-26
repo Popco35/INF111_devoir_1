@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7a97048-8e52-4ae1-97e5-6d77399f1d95" name="Changes" comment="Permet de savoir le nombre de caracteres identiques dans un char[] et un String">
+    <list default="true" id="a7a97048-8e52-4ae1-97e5-6d77399f1d95" name="Changes" comment="Permet de faire partie normalement&#10;Manque abandon pendant partie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Jotto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jotto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UtilitaireFonctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilitaireFonctions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674699048144</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Permet de faire partie normalement&#10;Manque abandon pendant partie">
+      <created>1674701442462</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674701442462</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +140,18 @@
     <MESSAGE value="Creation fonction de jeu et generation de lettres aleatoires" />
     <MESSAGE value="Generation de mot aleatoires" />
     <MESSAGE value="Permet de savoir le nombre de caracteres identiques dans un char[] et un String" />
-    <option name="LAST_COMMIT_MESSAGE" value="Permet de savoir le nombre de caracteres identiques dans un char[] et un String" />
+    <MESSAGE value="Permet de faire partie normalement&#10;Manque abandon pendant partie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Permet de faire partie normalement&#10;Manque abandon pendant partie" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Jotto.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
