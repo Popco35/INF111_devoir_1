@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Offre des fonctions utilitaires communes au projet
  *
@@ -79,6 +81,22 @@ public class UtilitaireFonctions {
 
 
 		return mot;
+	 }
+
+	 public static char[] generateMotShuffle(int nbLettres){
+		char[] mot = new char[nbLettres];
+		char[] lettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
+				'r','s','t','u','v','w','x','y','z'};
+		char memoire;
+
+		//Melange des lettres selon l'algorythme de Fisher-Yates
+		for(int i = lettres.length;i>1;i--){
+			int p = alea(0,i-1);
+			memoire = lettres[p];
+			lettres[p] = lettres[i-1];
+			lettres[i-1]=memoire;
+		}
+		return Arrays.copyOfRange(lettres,0,nbLettres-1);
 	 }
 
 

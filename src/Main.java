@@ -1,3 +1,6 @@
+import java.util.concurrent.TimeUnit;
+
+
 public class Main {
     public static void main(String[] args) {
         //init les stats du jeu et initializer ses champs a 0
@@ -6,6 +9,19 @@ public class Main {
         stats.nbParties = 0;
         stats.nbEssaisTotal = 0;
 
+        char[] uselessWord = new char[6];
+        int ocunter =0;
+        long then = System.nanoTime();
+
+
+        while(ocunter < 1000000){
+            uselessWord = UtilitaireFonctions.generateMotShuffle(6);
+            ocunter++;
+        }
+        long millis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - then);
+        System.out.println("Slept for (ms): " + millis); // = something around 1000.
+
+        System.out.println(uselessWord);
         int nbLettres;
 
         boolean finPartie = false;
