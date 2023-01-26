@@ -33,8 +33,38 @@ public class UtilitaireFonctions {
 		  return (int) Math.floor(Math.random()* (max - min + 1) + min);
 	 }
 
+	 public static boolean lettreDansTableau(char lettre, char[] tableau){
+		boolean doublon = false;
+		for(int i =0;i < tableau.length;i++){
+			if(tableau[i] == lettre){
+				doublon = true;
+				break;
+			}
+		}
+		return doublon;
+	 }
 
-	 public static char generateChar(int num){
+
+	 public static char[] generateMot(int nbLettres){
+		char[] mot = new char[nbLettres];
+		mot[0] = generateChar();
+		for(int i =1;i<nbLettres;i++){
+			boolean lettreValide = false;
+			char letter;
+			while(!lettreValide){
+				letter = generateChar();
+				if(!lettreDansTableau(letter,mot)){
+					lettreValide = true;
+					mot[i] = letter;
+				}
+			}
+		}
+
+
+		return mot;
+	 }
+
+	 public static char generateChar(){
 
 		return tableauLettres[alea(0,tableauLettres.length-1)];
 	 }

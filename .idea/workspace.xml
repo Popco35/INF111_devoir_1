@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7a97048-8e52-4ae1-97e5-6d77399f1d95" name="Changes" comment="Files from the teacher">
+    <list default="true" id="a7a97048-8e52-4ae1-97e5-6d77399f1d95" name="Changes" comment="Creation fonction de jeu et generation de lettres aleatoires">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jotto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jotto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UtilitaireFonctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilitaireFonctions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +48,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "editor.preferences.completion"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -81,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674697070684</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Creation fonction de jeu et generation de lettres aleatoires">
+      <created>1674697865703</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674697865703</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,6 +104,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init" />
     <MESSAGE value="Files from the teacher" />
-    <option name="LAST_COMMIT_MESSAGE" value="Files from the teacher" />
+    <MESSAGE value="Creation fonction de jeu et generation de lettres aleatoires" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation fonction de jeu et generation de lettres aleatoires" />
   </component>
 </project>
