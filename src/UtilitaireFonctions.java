@@ -85,4 +85,20 @@ public class UtilitaireFonctions {
 
 		return tableauLettres[alea(0,tableauLettres.length-1)];
 	 }
+
+	 public static String demanderMot(int nbLettres){
+		boolean motValide = false;
+		String mot = null;
+		while(!motValide){
+			mot = UtilitaireEntreesSorties.lireString("entrer un mot de "
+					+nbLettres+" lettres",true);
+			if(mot.equals("") || mot.length()==nbLettres){
+				motValide = true;
+
+			}
+
+		}
+
+		return mot;
+	 }
 }
