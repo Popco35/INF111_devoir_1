@@ -8,11 +8,14 @@ public class Main {
 
         int nbLettres;
 
+
         while(!UtilitaireEntreesSorties.utilisateurAnnule()){
             nbLettres = UtilitaireEntreesSorties.lireInt("Entrez un nombre entier entre 3 et 26: ",3,26);
 
             Jotto.playJotto(nbLettres, stats);
         }
+
+
 
 
         UtilitaireEntreesSorties.afficherStats(stats);

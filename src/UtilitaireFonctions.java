@@ -45,6 +45,23 @@ public class UtilitaireFonctions {
 	 }
 
 
+	 public static int nbDoublons(char[] mot, String motUtilisateur){
+		int sommeDoublons =0;
+		 motUtilisateur.toLowerCase();
+		int[] tableauDoublons = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+		for(int i =0; i< mot.length;i++){
+			tableauDoublons[(int)(mot[i])-97] +=1;
+			tableauDoublons[(int)(motUtilisateur.charAt(i))-97] +=1;
+		}
+
+		 for(int i =0; i< tableauDoublons.length;i++){
+			 sommeDoublons+= tableauDoublons[i]==2?1:0;
+		 }
+
+		return sommeDoublons;
+	 }
+
+
 	 public static char[] generateMot(int nbLettres){
 		char[] mot = new char[nbLettres];
 		mot[0] = generateChar();
