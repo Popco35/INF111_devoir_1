@@ -48,6 +48,7 @@ public class UtilitaireFonctions {
 
 
 	 public static int nbDoublons(char[] mot, String motUtilisateur){
+
 		int sommeDoublons =0;
 		 motUtilisateur = motUtilisateur.toLowerCase();
 		int[] tableauDoublons = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -84,6 +85,7 @@ public class UtilitaireFonctions {
 		 */
 		 char[] mot = new char[nbLettres];
 		 mot[0] = generateChar();
+
 		 for(int i =1;i<nbLettres;i++){
 			 boolean lettreValide = false;
 			 char letter;
@@ -103,18 +105,22 @@ public class UtilitaireFonctions {
 		 	Crer un tableau avec toutes les lettres et utiliser la methode Fisher-Yates pour melanger ce tableau en
 		 	echangeant des elements de position. Ensuite, retouner les nbLettres premiers element du tableau de lettres.
 		 */
-		char[] mot = new char[nbLettres];
+		char[] mot = new char[nbLettres]; // mot qu'on desire generer
+		 //tableau qui contient toutes les lettres
 		char[] lettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
 				'r','s','t','u','v','w','x','y','z'};
+		// variable de memoire pour proceder a l'echange de deux elements dans le tableau
 		char memoire;
 
 		//Melange des lettres selon l'algorythme de Fisher-Yates
 		for(int i = lettres.length;i>1;i--){
+
 			int index = alea(0,i-1);
 			memoire = lettres[index];
 			lettres[index] = lettres[i-1];
 			lettres[i-1]=memoire;
 		}
+
 		return Arrays.copyOfRange(lettres,0,nbLettres-1);
 	 }
 
