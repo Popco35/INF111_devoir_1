@@ -9,13 +9,13 @@ public class Main {
         stats.nbParties = 0;
         stats.nbEssaisTotal = 0;
 
-        char[] uselessWord = new char[6];
+        char[] uselessWord = new char[26];
         int ocunter =0;
         long then = System.nanoTime();
 
 
         while(ocunter < 1000000){
-            uselessWord = UtilitaireFonctions.generateMotShuffle(6);
+            uselessWord = UtilitaireFonctions.generateMot(26);
             ocunter++;
         }
         long millis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - then);

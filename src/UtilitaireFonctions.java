@@ -63,27 +63,46 @@ public class UtilitaireFonctions {
 		return sommeDoublons;
 	 }
 
-
+	/**
+	 * Genere un mot n'ayant aucune lettre lettre en double
+	 * @param nbLettres le nombre de lettres souhaite dans le mot
+	 * @return retourne un mot de nbLettres
+	 */
 	 public static char[] generateMot(int nbLettres){
-		char[] mot = new char[nbLettres];
-		mot[0] = generateChar();
-		for(int i =1;i<nbLettres;i++){
-			boolean lettreValide = false;
-			char letter;
-			while(!lettreValide){
-				letter = generateChar();
-				if(!lettreDansTableau(letter,mot)){
-					lettreValide = true;
-					mot[i] = letter;
-				}
-			}
-		}
-
-
-		return mot;
+		/*
+			Sous 15 lettres, generateMotHazard() produit un mot plus rapidement que generateMotShuffle().
+			c'est le contraire quand nbLettres devient egal ou superieur a 15 lettres. Je prends donc la fonction
+			la plus rapide.
+		*/
+		return (nbLettres<15)?generateMothazard(nbLettres):generateMotShuffle(nbLettres);
 	 }
 
-	 public static char[] generateMotShuffle(int nbLettres){
+	 private static char[] generateMothazard(int nbLettres){
+		 /*
+		 	genere une nouvelle lettre aleatoire tant qu'elle est deja dans le mot incomplet. Une fois une lettre
+		 	unique trouvee, l'ajouter au mot et continuer avec la prochaine lettre si le mot n'est pas complet
+		 */
+		 char[] mot = new char[nbLettres];
+		 mot[0] = generateChar();
+		 for(int i =1;i<nbLettres;i++){
+			 boolean lettreValide = false;
+			 char letter;
+			 while(!lettreValide){
+				 letter = generateChar();
+				 if(!lettreDansTableau(letter,mot)){
+					 lettreValide = true;
+					 mot[i] = letter;
+				 }
+			 }
+		 }
+		 return mot;
+	 }
+
+	 private static char[] generateMotShuffle(int nbLettres){
+		 /*
+		 	Crer un tableau avec toutes les lettres et utiliser la methode Fisher-Yates pour melanger ce tableau en
+		 	echangeant des elements de position. Ensuite, retouner les nbLettres premiers element du tableau de lettres.
+		 */
 		char[] mot = new char[nbLettres];
 		char[] lettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
 				'r','s','t','u','v','w','x','y','z'};
@@ -91,9 +110,9 @@ public class UtilitaireFonctions {
 
 		//Melange des lettres selon l'algorythme de Fisher-Yates
 		for(int i = lettres.length;i>1;i--){
-			int p = alea(0,i-1);
-			memoire = lettres[p];
-			lettres[p] = lettres[i-1];
+			int index = alea(0,i-1);
+			memoire = lettres[index];
+			lettres[index] = lettres[i-1];
 			lettres[i-1]=memoire;
 		}
 		return Arrays.copyOfRange(lettres,0,nbLettres-1);
