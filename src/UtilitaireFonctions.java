@@ -46,20 +46,20 @@ public class UtilitaireFonctions {
 		return doublon;
 	 }
 
-
 	 public static int nbDoublons(char[] mot, String motUtilisateur){
 
 		int sommeDoublons =0;
-		 motUtilisateur = motUtilisateur.toLowerCase();
-		int[] tableauDoublons = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+		motUtilisateur = motUtilisateur.toLowerCase();
+		int[] tableauDoublons = new int[26];
+
 		for(int i =0; i< mot.length;i++){
 			tableauDoublons[(int)(mot[i])-97] +=1;
 			tableauDoublons[(int)(motUtilisateur.charAt(i))-97] +=1;
 		}
 
-		 for(int i =0; i< tableauDoublons.length;i++){
-			 sommeDoublons+= tableauDoublons[i]==2?1:0;
-		 }
+		for(int i =0; i< tableauDoublons.length;i++){
+			 sommeDoublons+= tableauDoublons[i]<=2?1:0;
+		}
 
 		return sommeDoublons;
 	 }
@@ -112,8 +112,10 @@ public class UtilitaireFonctions {
 		// variable de memoire pour proceder a l'echange de deux elements dans le tableau
 		char memoire;
 
-		//Melange des lettres selon l'algorythme de Fisher-Yates
-		for(int i = lettres.length;i>1;i--){
+		/* Melange des lettres selon l'algorythme de Fisher-Yates
+		https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
+		 */
+		for(int i = lettres.length; i>1; i--){
 
 			int index = alea(0,i-1);
 			memoire = lettres[index];
@@ -122,6 +124,32 @@ public class UtilitaireFonctions {
 		}
 
 		return Arrays.copyOfRange(lettres,0,nbLettres-1);
+	 }
+
+	 public static char[] generateMotShift(int nbLettres){
+		 char[] mot = new char[nbLettres];
+		 int indiceSignificatif = 25;
+		 char[] tabLettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
+				 'r','s','t','u','v','w','x','y','z'};
+		 char temp;
+		 int num;
+		 for(int i =0; i < nbLettres;i++){
+			 num = alea(0,indiceSignificatif);
+			 mot[i] = tabLettres[num];
+			 swapInt(tabLettres, num, indiceSignificatif);
+			 indiceSignificatif--;
+		 }
+
+
+
+		 return Arrays.copyOfRange(tabLettres,0,nbLettres-1);
+	 }
+
+
+	 public static void swapInt(char[] tab, int index1, int index2){
+		 char tmp = tab[index1];
+		 tab[index1] = tab[index2];
+		 tab[index2] = tmp;
 	 }
 
 

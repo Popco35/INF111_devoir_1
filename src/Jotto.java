@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class Jotto {
 
     public static void playJotto(int nbLettres, StatistiquesJeu stats){
