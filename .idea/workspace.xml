@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7a97048-8e52-4ae1-97e5-6d77399f1d95" name="Changes" comment="Corriger bug si plusieur fois la meme lettre">
+    <list default="true" id="a7a97048-8e52-4ae1-97e5-6d77399f1d95" name="Changes" comment="Ajout de constantes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UtilitaireFonctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilitaireFonctions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +99,8 @@
       <updated>1674696627895</updated>
       <workItem from="1674770162602" duration="481000" />
       <workItem from="1674770739865" duration="3910000" />
-      <workItem from="1675179663514" duration="6103000" />
+      <workItem from="1675179663514" duration="10012000" />
+      <workItem from="1675348718119" duration="294000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1674696831946</created>
@@ -149,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675183660330</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Comments">
+      <created>1675185846401</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675185846401</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,18 +183,9 @@
     <MESSAGE value="Permet de savoir le nombre de caracteres identiques dans un char[] et un String" />
     <MESSAGE value="Permet de faire partie normalement&#10;Manque abandon pendant partie" />
     <MESSAGE value="Corriger bug si plusieur fois la meme lettre" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corriger bug si plusieur fois la meme lettre" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Jotto.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Comments" />
+    <MESSAGE value="Ajout de constantes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de constantes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

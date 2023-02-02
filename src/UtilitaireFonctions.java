@@ -10,9 +10,12 @@ import java.util.Arrays;
 public class UtilitaireFonctions {
 	public static final char[] tableauLettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
 			'r','s','t','u','v','w','x','y','z'};
+	public static final int nbLettresAlphabet = 26;
+	public static final int decalageASCII = 97;
+
+	public static final int nbLettresMin = 3;
 	/**
 	 * Retourne une nombre aléatoire dans un intervalle entier donné.
-	 *
 	 * ATTENTION : min doit être plus petit que max  mais aucune validation
 	 *             n'est effectuée.
 	 *
@@ -22,7 +25,7 @@ public class UtilitaireFonctions {
 	 */
 	 public static int alea(int min, int max){
 
-		/**
+		/*
 		 * STRATÉGIE :  On utilise la fonction random de la classe Math et on
 		 *                          ajuste la valeur reçue entre [0 et 1[
 		 *                          tronqué (à l'aide de floor)
@@ -68,18 +71,21 @@ public class UtilitaireFonctions {
 		//mettres les lettres en minuscule pour ne pas avoir de probleme avec la conversion de leur nombre ascii
 		motUtilisateur = motUtilisateur.toLowerCase();
 		//tableau pour determiner le nombre de fois que chaque lettre est presente dans les deux mots
-		int[] tableauDoublons = new int[26];
+		int[] tableauDoublons = new int[nbLettresAlphabet];
 
+		//permet de filtrer les motUtilisateurs qui ont plus d'une fois la meme lettre
+		for(int i =0; i < motUtilisateur.length();i++){
+			tableauDoublons[(int)(motUtilisateur.charAt(i))-decalageASCII] = 1;
+		}
 		//utiliser chaque lettre comme index (decalle) dans le tableau et indiquer sa presence en ajoutant 1
 		for(int i =0; i< mot.length;i++){
-			tableauDoublons[(int)(mot[i])-97] +=1;
-			tableauDoublons[(int)(motUtilisateur.charAt(i))-97] +=1;
+			tableauDoublons[(int)(mot[i])-decalageASCII] +=1;
 		}
 
 		for(int i =0; i< tableauDoublons.length;i++){
 			//Si une case du tableau contient une valeur superieur a 1, cela veut dire que cette lettre etait presente
 			// dans les deux mots
-			 sommeDoublons+= tableauDoublons[i]<=2?1:0;
+			 sommeDoublons += tableauDoublons[i]>=2?1:0;
 		}
 
 		return sommeDoublons;
@@ -139,7 +145,7 @@ public class UtilitaireFonctions {
 		 	Crer un tableau avec toutes les lettres et utiliser la methode Fisher-Yates pour melanger ce tableau en
 		 	echangeant des elements de position. Ensuite, retouner les nbLettres premiers element du tableau de lettres.
 		 */
-		char[] mot = new char[nbLettres]; // mot qu'on desire generer
+
 		 //tableau qui contient toutes les lettres
 		char[] lettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
 				'r','s','t','u','v','w','x','y','z'};
@@ -170,7 +176,7 @@ public class UtilitaireFonctions {
 		 	de lettres significatives jusqu'a ce que le mot soit complet
 		 */
 		 char[] mot = new char[nbLettres]; // initialiser le mot a generer
-		 int indiceSignificatif = 25;	// indice de la derniere lettre significative et encore valide
+		 int indiceSignificatif = nbLettresAlphabet -1;	// indice de la derniere lettre significative et encore valide
 		 // tableau contenant toutes les lettres
 		 char[] tabLettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
 				 'r','s','t','u','v','w','x','y','z'};
@@ -214,6 +220,7 @@ public class UtilitaireFonctions {
 			for(int i =0;i < mot.length;i++){
 				if(mot[i] != str.charAt(i)){
 					result = false;
+					break;
 				}
 			}
 		} else{

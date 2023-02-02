@@ -8,6 +8,7 @@ public class Main {
         stats.nbReussite = 0;
         stats.nbParties = 0;
         stats.nbEssaisTotal = 0;
+
 //--------------------------------------------------------------------------------------------------------------------//
         int nbL = 26;
         char[] uselessWord = new char[nbL];
@@ -53,7 +54,11 @@ public class Main {
 
         boolean finPartie = false;
         while(!finPartie){
-            nbLettres = UtilitaireEntreesSorties.lireInt("Entrez un nombre entier entre 3 et 26: ",3,26);
+            nbLettres = UtilitaireEntreesSorties.lireInt("Entrez un nombre entier entre "
+                            +UtilitaireFonctions.nbLettresMin+" et "
+                            +UtilitaireFonctions.nbLettresAlphabet+": "
+                            ,UtilitaireFonctions.nbLettresMin
+                            ,UtilitaireFonctions.nbLettresAlphabet);
 
             if(!UtilitaireEntreesSorties.utilisateurAnnule()){
                 Jotto.playJotto(nbLettres, stats);
@@ -71,3 +76,4 @@ public class Main {
 
     }
 }
+
