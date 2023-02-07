@@ -1,8 +1,6 @@
-import java.util.concurrent.TimeUnit;
-
 public class Jotto {
 
-    public static void playJotto(int nbLettres, StatistiquesJeu stats){
+    public static void jouerPartieJotto(int nbLettres, StatistiquesJeu stats){
 
         char[] mot;
         String motUtilisateur;
@@ -11,28 +9,33 @@ public class Jotto {
         boolean finPartie = false;
 
         while(!finPartie){
-            mot = UtilitaireFonctions.generateMot(nbLettres);
+            mot = UtilitaireFonctions.genererMot(nbLettres);
 
-            boolean motDevine = false;
+            boolean motEstDevine = false;
 
-            while(!motDevine){
+            while(!motEstDevine){
+
                 int nbDoublons;
                 motUtilisateur = UtilitaireFonctions.demanderMot(nbLettres);
                 if(!UtilitaireEntreesSorties.utilisateurAnnule()) {
+
                     nbDoublons = UtilitaireFonctions.nbDoublons(mot, motUtilisateur);
 
                     if (UtilitaireFonctions.equals(mot, motUtilisateur)) {
+
                         stats.nbParties += 1;
                         stats.nbEssaisTotal += 1;
                         stats.nbReussite += 1;
-                        motDevine = true;
+                        motEstDevine = true;
                         System.out.println("Bravo, vous avec devine le mot!");
                     } else {
+
                         stats.nbEssaisTotal += 1;
                         System.out.println("Vous avez " + nbDoublons + " lettres qui sont dans les deux mots");
                     }
                 } else {
-                    motDevine = true;
+
+                    motEstDevine = true;
                     stats.nbParties +=1;
                 }
 
@@ -42,6 +45,7 @@ public class Jotto {
             String demande = UtilitaireEntreesSorties.lireString("Voulez jouer une autre partie avec le "+
                     "meme nombre de lettres? [y/n]: ",false);
             if(demande.equals("n")){
+
                 finPartie = true;
             }
         }

@@ -45,7 +45,8 @@ public class UtilitaireFonctions {
 	 * @param tableau tableau sur lequel on effectue la recherche
 	 * @return true si la lettre est dans le tableau
 	 */
-	 public static boolean lettreDansTableau(char lettre, char[] tableau){
+	 public static boolean lettreEstDansTableau(char lettre, char[] tableau){
+
 		//loop sur le tableau pour trouver la lettre
 		boolean doublon = false;	// flag pour determiner si la lettre a ete trouvee dans le tableau
 		for(int i =0;i < tableau.length;i++){
@@ -96,13 +97,13 @@ public class UtilitaireFonctions {
 	 * @param nbLettres le nombre de lettres souhaite dans le mot
 	 * @return retourne un mot de nbLettres
 	 */
-	 public static char[] generateMot(int nbLettres){
+	 public static char[] genererMot(int nbLettres){
 		/*
 			Sous 15 lettres, generateMotHazard() produit un mot plus rapidement que generateMotShuffle().
 			c'est le contraire quand nbLettres devient egal ou superieur a 15 lettres. Je prends donc la fonction
 			la plus rapide.
 		*/
-		return (nbLettres<15)?generateMothazard(nbLettres):generateMotShuffle(nbLettres);
+		return (nbLettres<15)? genererMotAleatoire(nbLettres): genererMotMelange(nbLettres);
 	 }
 
 	/**
@@ -110,23 +111,23 @@ public class UtilitaireFonctions {
 	 * @param nbLettres determine le nombre de lettres que le mot genere doit avoir
 	 * @return retourne le mot genere sous la forme de char[]
 	 */
-	 private static char[] generateMothazard(int nbLettres){
+	 private static char[] genererMotAleatoire(int nbLettres){
 		 /*
 		 	genere une nouvelle lettre aleatoire tant qu'elle est deja dans le mot incomplet. Une fois une lettre
 		 	unique trouvee, l'ajouter au mot et continuer avec la prochaine lettre si le mot n'est pas complet
 		 */
 		 char[] mot = new char[nbLettres];
 		 // generer la premiere lettre. Elle ne peut pas avoir de doublon
-		 mot[0] = generateChar();
+		 mot[0] = genererLettre();
 
 		 for(int i =1;i<nbLettres;i++){
 			 boolean lettreValide = false; // flag pour les lettres valides
 			 char letter;	// lettre qui va etre genere
 
 			 while(!lettreValide){
-				 letter = generateChar();
+				 letter = genererLettre();
 				 //si la lettre est valide (pas dans le tableau), l'ajouter au mot et passer a la lettre suivante
-				 if(!lettreDansTableau(letter,mot)){
+				 if(!lettreEstDansTableau(letter,mot)){
 					 lettreValide = true;
 					 mot[i] = letter;
 				 }
@@ -140,7 +141,7 @@ public class UtilitaireFonctions {
 	 * @param nbLettres le nombre de lettres souhaite dans le mot
 	 * @return retourne un mot de nbLettres
 	 */
-	 private static char[] generateMotShuffle(int nbLettres){
+	 private static char[] genererMotMelange(int nbLettres){
 		 /*
 		 	Crer un tableau avec toutes les lettres et utiliser la methode Fisher-Yates pour melanger ce tableau en
 		 	echangeant des elements de position. Ensuite, retouner les nbLettres premiers element du tableau de lettres.
@@ -157,7 +158,7 @@ public class UtilitaireFonctions {
 		for(int i = lettres.length-1; i>1; i--){
 			// commencer vers la fin du tableau et echanger la lettre avec une lettre aleatoire qui la precede
 			int index = alea(0,i);
-			swapChar(lettres,index,i);
+			echangerChar(lettres,index,i);
 
 		}
 		//retourner le nombre de lettres souhaitees
@@ -169,7 +170,7 @@ public class UtilitaireFonctions {
 	 * @param nbLettres nombre de lettres que le mot genere doit avoir
 	 * @return retourne le mot sous forme de char[]
 	 */
-	 public static char[] generateMotShift(int nbLettres){
+	 public static char[] genererMotEchange(int nbLettres){
 		 /*
 		 	prendre une lettre aleatoire et l'ajouter au mot. remettre cette lettre aleatoire a la fin du tableau et
 		 	reduire de 1 le nombre de lettres significatives. reprendre une lettre aleatoire ne depassant pas le nombre
@@ -189,7 +190,7 @@ public class UtilitaireFonctions {
 			 mot[i] = tabLettres[num];
 			 // mettre cette lettre a la fin des lettres significatives et reduire de 1 l'indice des lettres
 			 // significatives
-			 swapChar(tabLettres, num, indiceSignificatif);
+			 echangerChar(tabLettres, num, indiceSignificatif);
 			 indiceSignificatif--;
 		 }
 
@@ -204,7 +205,7 @@ public class UtilitaireFonctions {
 	 * @param index1 indice du premier element
 	 * @param index2 indice du second element
 	 */
-	 public static void swapChar(char[] tab, int index1, int index2){
+	 public static void echangerChar(char[] tab, int index1, int index2){
 
 		 char tmp = tab[index1]; // variable pour garder en memoire l'element qui se fait ecraser
 		 // echanger les deux elements
@@ -214,6 +215,7 @@ public class UtilitaireFonctions {
 
 
 	 public static boolean equals(char[] mot, String str){
+
 		boolean result = true;
 		str = str.toLowerCase();
 		if(mot.length == str.length()){
@@ -234,7 +236,7 @@ public class UtilitaireFonctions {
 	 * genere un char aleatoire
 	 * @return un char
 	 */
-	 public static char generateChar(){
+	 public static char genererLettre(){
 
 		return tableauLettres[alea(0,tableauLettres.length-1)];
 	 }
