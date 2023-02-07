@@ -86,7 +86,7 @@ public class Main {
                         motEstDevine = true;
 
                         //impression d'une message de victoire
-                        System.out.println("Bravo, vous avec devine le mot!");
+                        System.out.println("JOTTO! Bravo, vous avez devine le mot!");
 
                     } else {
                         /*
@@ -108,7 +108,7 @@ public class Main {
 
 
 
-                finPartie = !demandeUtilisateurAutrePartie();
+                finPartie = !demanderRecommencer();
 
         }
 
@@ -119,12 +119,14 @@ public class Main {
      * Demande a l'utilisateur s'il veux jouer une autre partie avec le meme nombre de lettres
      * @return retourne true si l'utilisateur veux garder le meme nombre de lettre
      */
-    public static boolean demandeUtilisateurAutrePartie(){
-        boolean reponseValide = false;
-        boolean reponse = false;
+    public static boolean demanderRecommencer(){
+        boolean reponseValide = false;  //drapeau pour determiner si la reponse est valide
+        boolean reponse = false;    //resultat de la demande pour une autre partie
         while(!reponseValide){
+            // reponse de l'utilisateur en fonction de la demande
             String demande = UtilitaireEntreesSorties.lireString("Voulez jouer une autre partie avec le "+
                     "meme nombre de lettres? [oui/non]: ",false);
+            // analyse de la reponse du joueur
             if(demande.toLowerCase().equals("oui")){
                 reponse = true;
                 reponseValide = true;
