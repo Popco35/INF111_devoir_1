@@ -8,12 +8,14 @@ import java.util.Arrays;
  *
  */
 public class UtilitaireFonctions {
-	public static final char[] tableauLettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
+	public static final char[] TABLEAU_LETTRES = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
 			'r','s','t','u','v','w','x','y','z'};
-	public static final int nbLettresAlphabet = 26;
-	public static final int decalageASCII = 97;
+	public static final int NB_LETTRES_ALPHABET = 26;
+	public static final int DECALAGE_ASCII = 97;
 
-	public static final int nbLettresMin = 3;
+	public static final int NB_LETTRES_MIN = 3; // nombre minimum
+	public  static final int POINT_OPTIMISATION_MOT = 15; // le point a partir du quel un nouvel algorithme de generation
+	//de mot devient plus rapide
 	/**
 	 * Retourne une nombre aléatoire dans un intervalle entier donné.
 	 * ATTENTION : min doit être plus petit que max  mais aucune validation
@@ -72,15 +74,15 @@ public class UtilitaireFonctions {
 		//mettres les lettres en minuscule pour ne pas avoir de probleme avec la conversion de leur nombre ascii
 		motUtilisateur = motUtilisateur.toLowerCase();
 		//tableau pour determiner le nombre de fois que chaque lettre est presente dans les deux mots
-		int[] tableauDoublons = new int[nbLettresAlphabet];
+		int[] tableauDoublons = new int[NB_LETTRES_ALPHABET];
 
 		//permet de filtrer les motUtilisateurs qui ont plus d'une fois la meme lettre
 		for(int i =0; i < motUtilisateur.length();i++){
-			tableauDoublons[(int)(motUtilisateur.charAt(i))-decalageASCII] = 1;
+			tableauDoublons[(int)(motUtilisateur.charAt(i))- DECALAGE_ASCII] = 1;
 		}
 		//utiliser chaque lettre comme index (decalle) dans le tableau et indiquer sa presence en ajoutant 1
 		for(int i =0; i< mot.length;i++){
-			tableauDoublons[(int)(mot[i])-decalageASCII] +=1;
+			tableauDoublons[(int)(mot[i])- DECALAGE_ASCII] +=1;
 		}
 
 		for(int i =0; i< tableauDoublons.length;i++){
@@ -99,11 +101,12 @@ public class UtilitaireFonctions {
 	 */
 	 public static char[] genererMot(int nbLettres){
 		/*
-			Sous 15 lettres, generateMotHazard() produit un mot plus rapidement que generateMotShuffle().
+			Sous 15 lettres, generateMotAleatoire() produit un mot plus rapidement que generateMotEchange().
 			c'est le contraire quand nbLettres devient egal ou superieur a 15 lettres. Je prends donc la fonction
 			la plus rapide.
 		*/
-		return (nbLettres<15)? genererMotAleatoire(nbLettres): genererMotMelange(nbLettres);
+		return (nbLettres<POINT_OPTIMISATION_MOT)? genererMotAleatoire(nbLettres):
+				genererMotEchange(nbLettres);
 	 }
 
 	/**
@@ -177,7 +180,7 @@ public class UtilitaireFonctions {
 		 	de lettres significatives jusqu'a ce que le mot soit complet
 		 */
 		 char[] mot = new char[nbLettres]; // initialiser le mot a generer
-		 int indiceSignificatif = nbLettresAlphabet -1;	// indice de la derniere lettre significative et encore valide
+		 int indiceSignificatif = NB_LETTRES_ALPHABET -1;	// indice de la derniere lettre significative et encore valide
 		 // tableau contenant toutes les lettres
 		 char[] tabLettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
 				 'r','s','t','u','v','w','x','y','z'};
@@ -238,7 +241,7 @@ public class UtilitaireFonctions {
 	 */
 	 public static char genererLettre(){
 
-		return tableauLettres[alea(0,tableauLettres.length-1)];
+		return TABLEAU_LETTRES[alea(0, TABLEAU_LETTRES.length-1)];
 	 }
 
 	/**

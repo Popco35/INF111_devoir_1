@@ -1,18 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        //init les stats du jeu et initializer ses champs a 0
+        //init les stats du jeu
         StatistiquesJeu stats = new StatistiquesJeu();
 
-        int nbLettres;
+        int nbLettres; // nb de lettres dans le mot
 
-        boolean finJeu = false;
+        boolean finJeu = false; // drapeau signalant la fin du jeu
         while(!finJeu){
 
             nbLettres = UtilitaireEntreesSorties.lireInt("Entrez un nombre entier entre "
-                            +UtilitaireFonctions.nbLettresMin+" et "
-                            +UtilitaireFonctions.nbLettresAlphabet+": "
-                            ,UtilitaireFonctions.nbLettresMin
-                            ,UtilitaireFonctions.nbLettresAlphabet);
+                            +UtilitaireFonctions.NB_LETTRES_MIN +" et "
+                            +UtilitaireFonctions.NB_LETTRES_ALPHABET +": "
+                            ,UtilitaireFonctions.NB_LETTRES_MIN
+                            ,UtilitaireFonctions.NB_LETTRES_ALPHABET);
 
             if(!UtilitaireEntreesSorties.utilisateurAnnule()){
 
