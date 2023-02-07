@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 /**
  * Jeu Jotto fait dans le cadre du cours INF111
@@ -200,34 +199,7 @@ public class Main {
         return mot;
     }
 
-    /**
-     * Genere un mot en brassant un tableau de lettre en utilisant l'agorithme Fisher-Yates
-     * @param nbLettres le nombre de lettres souhaite dans le mot
-     * @return retourne un mot de nbLettres
-     */
-    private static char[] genererMotMelange(int nbLettres){
-		 /*
-		 	Crer un tableau avec toutes les lettres et utiliser la methode Fisher-Yates pour melanger ce tableau en
-		 	echangeant des elements de position. Ensuite, retouner les nbLettres premiers element du tableau de lettres.
-		 */
 
-        //tableau qui contient toutes les lettres
-        char[] lettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
-                'r','s','t','u','v','w','x','y','z'};
-
-
-		/* Melange des lettres selon l'algorythme de Fisher-Yates
-		https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-		 */
-        for(int i = lettres.length-1; i>1; i--){
-            // commencer vers la fin du tableau et echanger la lettre avec une lettre aleatoire qui la precede
-            int index = UtilitaireFonctions.alea(0,i);
-            echangerChar(lettres,index,i);
-
-        }
-        //retourner le nombre de lettres souhaitees
-        return Arrays.copyOfRange(lettres,0,nbLettres-1);
-    }
 
     /**
      * Genere un mot aleatoire sans lettre qui se repete
