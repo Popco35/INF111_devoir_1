@@ -8,15 +8,18 @@
  */
 
 public class Main {
+    //tableau contenant toutes les lettres de l'alphabet
     public static final char[] TABLEAU_LETTRES = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q',
             'r','s','t','u','v','w','x','y','z'};
-    public static final int NB_LETTRES_ALPHABET = 26;
+    public static final int NB_LETTRES_ALPHABET = 26;   // nombre de lettres total dans l'alphabet
 
     public static final int DECALAGE_ASCII = 97;    //decalage entre la valeur ascii de 'a' et 0
 
-    public static final int NB_LETTRES_MIN = 3; // nombre minimum
-    // le point a partir du quel un nouvel algorithme de generation
-    // de mot devient plus rapide
+    public static final int NB_LETTRES_MIN = 3;     // nombre minimum de lettres dans un mot
+
+    /*le point a partir du quel un nouvel algorithme de generation
+    de mot devient plus rapide
+    */
     public  static final int POINT_OPTIMISATION_MOT = 15;
     public static void main(String[] args) {
         //init les stats du jeu
@@ -30,6 +33,7 @@ public class Main {
             nbLettres = UtilitaireEntreesSorties.lireInt("Entrez un nombre entier entre " + NB_LETTRES_MIN +
                     " et " + NB_LETTRES_ALPHABET,NB_LETTRES_MIN,NB_LETTRES_ALPHABET);
 
+            // si l'utilisateur ne quitte pas, jouer la partie. Sinon quitter le jeu
             if(!UtilitaireEntreesSorties.utilisateurAnnule()){
 
                 jouerPartieJotto(nbLettres, stats);
@@ -47,41 +51,53 @@ public class Main {
 
     public static void jouerPartieJotto(int nbLettres, StatistiquesJeu stats){
 
-        char[] mot;
-        String motUtilisateur;
+        char[] mot; // mot genere par le programme
+        String motUtilisateur;  // mot entre par le joueur
 
 
-        boolean finPartie = false;
+        boolean finPartie = false;  //drapeau signalant la fin de la partie
 
         while(!finPartie){
+
             mot = genererMot(nbLettres);
 
-            boolean motEstDevine = false;
-            boolean quitterPartie = false;
+            boolean motEstDevine = false;   //drapeau signalant que le mot a ete devine
+            boolean quitterPartie = false;  // drapeau signalant la demande d'abandon du joueur
 
             while(!motEstDevine && !quitterPartie){
 
-                int nbDoublons;
+                int nbDoublons; //nb de lettres identiques entre deux mots
                 motUtilisateur = demanderMot(nbLettres);
+
+                // si le joueur n'abandonne pas, analyser son mot. Sinon, abandonner cette partie
                 if(!UtilitaireEntreesSorties.utilisateurAnnule()) {
 
                     nbDoublons = nbDoublons(mot, motUtilisateur);
 
+                    //si les mots sont identiques, l'utilisateur a gagne la partie
                     if (equals(mot, motUtilisateur)) {
-
+                        /*
+                        mettre a jour les statistiques lors d'une victoire et activer le drapeau signalant le mot
+                        comme etant devine
+                         */
                         stats.nbParties += 1;
                         stats.nbEssaisTotal += 1;
                         stats.nbReussite += 1;
                         motEstDevine = true;
+
+                        //impression d'une message de victoire
                         System.out.println("Bravo, vous avec devine le mot!");
 
                     } else {
-
+                        /*
+                        en cas de mot non gagnant, dire au joueur le nombre de lettres qui se retrouvent dans le mot
+                        a deviner et actualiser le nombre d'essais des statistiques
+                         */
                         stats.nbEssaisTotal += 1;
                         System.out.println("Vous avez " + nbDoublons + " lettres qui sont dans les deux mots");
                     }
                 } else {
-
+                    // activer le drapeau pour quitter la partie et actualiser le nombre de parties
                     quitterPartie = true;
                     stats.nbParties +=1;
                 }
@@ -89,15 +105,38 @@ public class Main {
 
             }
 
-            String demande = UtilitaireEntreesSorties.lireString("Voulez jouer une autre partie avec le "+
-                    "meme nombre de lettres? [y/n]: ",false);
-            if(demande.equals("n")){
+
+            if(!demandeUtilisateurAutrePartie()){
 
                 finPartie = true;
             }
         }
 
 
+    }
+
+    /**
+     * Demande a l'utilisateur s'il veux jouer une autre partie avec le meme nombre de lettres
+     * @return retourne true si l'utilisateur veux garder le meme nombre de lettre
+     */
+    public static boolean demandeUtilisateurAutrePartie(){
+        boolean reponseValide = false;
+        boolean reponse = false;
+        while(!reponseValide){
+            String demande = UtilitaireEntreesSorties.lireString("Voulez jouer une autre partie avec le "+
+                    "meme nombre de lettres? [oui/non]: ",false);
+            if(demande.toLowerCase().equals("oui")){
+                reponse = true;
+                reponseValide = true;
+            } else if(demande.toLowerCase().equals("non")){
+
+                reponseValide = true;
+            } else{
+                System.out.println("La reponse que vous avec entre n'est pas valide");
+            }
+        }
+
+        return reponse;
     }
 
 

@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7a97048-8e52-4ae1-97e5-6d77399f1d95" name="Changes" comment="Ajout de constantes">
+    <list default="true" id="a7a97048-8e52-4ae1-97e5-6d77399f1d95" name="Changes" comment="Delete unused code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Jotto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jotto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UtilitaireFonctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilitaireFonctions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +109,7 @@
       <workItem from="1675179663514" duration="10012000" />
       <workItem from="1675348718119" duration="1680000" />
       <workItem from="1675350616655" duration="655000" />
-      <workItem from="1675784297110" duration="2720000" />
+      <workItem from="1675784297110" duration="4061000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1674696831946</created>
@@ -190,7 +188,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675785474463</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Tout mettre dans main">
+      <created>1675787325581</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1675787325581</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Delete unused code">
+      <created>1675787408193</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1675787408193</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +229,9 @@
     <MESSAGE value="Corriger bug si plusieur fois la meme lettre" />
     <MESSAGE value="Comments" />
     <MESSAGE value="Ajout de constantes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout de constantes" />
+    <MESSAGE value="Tout mettre dans main" />
+    <MESSAGE value="Delete unused code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete unused code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
