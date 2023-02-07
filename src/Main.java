@@ -66,13 +66,10 @@ public class Main {
 
             while(!motEstDevine && !quitterPartie){
 
-                int nbDoublons; //nb de lettres identiques entre deux mots
                 motUtilisateur = demanderMot(nbLettres);
 
                 // si le joueur n'abandonne pas, analyser son mot. Sinon, abandonner cette partie
                 if(!UtilitaireEntreesSorties.utilisateurAnnule()) {
-
-                    nbDoublons = nbDoublons(mot, motUtilisateur);
 
                     //si les mots sont identiques, l'utilisateur a gagne la partie
                     if (equals(mot, motUtilisateur)) {
@@ -92,9 +89,10 @@ public class Main {
                         /*
                         en cas de mot non gagnant, dire au joueur le nombre de lettres qui se retrouvent dans le mot
                         a deviner et actualiser le nombre d'essais des statistiques
-                         */
+                        */
+
                         stats.nbEssaisTotal += 1;
-                        System.out.println("Vous avez " + nbDoublons + " lettres qui sont dans les deux mots");
+                        System.out.println("Vous avez " + nbDoublons(mot, motUtilisateur) + " lettres qui sont dans les deux mots");
                     }
                 } else {
                     // activer le drapeau pour quitter la partie et actualiser le nombre de parties
@@ -102,17 +100,11 @@ public class Main {
                     stats.nbParties +=1;
                 }
 
-
             }
-
-
-
 
                 finPartie = !demanderRecommencer();
 
         }
-
-
     }
 
     /**
