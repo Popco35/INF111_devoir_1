@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a7a97048-8e52-4ae1-97e5-6d77399f1d95" name="Changes" comment="Ajout de constantes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Jotto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Jotto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UtilitaireFonctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UtilitaireFonctions.java" afterDir="false" />
     </list>
@@ -110,7 +111,7 @@
       <workItem from="1675179663514" duration="10012000" />
       <workItem from="1675348718119" duration="1680000" />
       <workItem from="1675350616655" duration="655000" />
-      <workItem from="1675784297110" duration="1120000" />
+      <workItem from="1675784297110" duration="2720000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1674696831946</created>
@@ -182,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675784911371</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Ajout de constantes">
+      <created>1675785474463</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675785474463</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
