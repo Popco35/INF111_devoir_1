@@ -106,10 +106,10 @@ public class Main {
             }
 
 
-            if(!demandeUtilisateurAutrePartie()){
 
-                finPartie = true;
-            }
+
+                finPartie = !demandeUtilisateurAutrePartie();
+
         }
 
 
